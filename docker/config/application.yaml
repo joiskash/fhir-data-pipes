@@ -22,7 +22,9 @@ fhirdata:
   # `hapi-server` is another docker example where a container with that name is
   # running on the same docker network.
   # fhirServerUrl: "http://172.17.0.1:8091/fhir"
-  # fhirServerUrl: "http://hapi-server:8080/fhir"
+  fhirServerUsername: ""
+  fhirServerPassword: ""
+  fhirServerUrl: ""
   dbConfig: "config/hapi-postgres-config_local.json"
   dwhRootPrefix: "/dwh/controller_DWH"
   incrementalSchedule: "0 0 * * * *"
@@ -30,7 +32,7 @@ fhirdata:
   numOfDwhSnapshotsToRetain: 2
   resourceList: "Patient,Encounter,Observation"
   maxWorkers: 1
-  numThreads: -1
+  numThreads: 4
   createHiveResourceTables: true
   thriftserverHiveConfig: "config/thriftserver-hive-config_local.json"
   hiveJdbcDriver: "org.apache.hive.jdbc.HiveDriver"

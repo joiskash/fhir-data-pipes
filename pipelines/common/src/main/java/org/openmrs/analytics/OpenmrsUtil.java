@@ -17,9 +17,8 @@
 package org.openmrs.analytics;
 
 import ca.uhn.fhir.context.FhirContext;
-import ca.uhn.fhir.rest.client.api.IClientInterceptor;
 import ca.uhn.fhir.rest.client.api.IGenericClient;
-import ca.uhn.fhir.rest.client.interceptor.BasicAuthInterceptor;
+import ca.uhn.fhir.rest.client.interceptor.BearerTokenAuthInterceptor;
 import ca.uhn.fhir.rest.client.interceptor.LoggingInterceptor;
 import org.hl7.fhir.instance.model.api.IBaseResource;
 import org.hl7.fhir.r4.model.Resource;
@@ -74,7 +73,9 @@ public class OpenmrsUtil {
   }
 
   public IGenericClient getSourceClient(boolean enableRequestLogging) {
-    IClientInterceptor authInterceptor = new BasicAuthInterceptor(this.sourceUser, this.sourcePw);
+    //    IClientInterceptor authInterceptor = new BasicAuthInterceptor(this.sourceUser,
+    // this.sourcePw);
+    BearerTokenAuthInterceptor authInterceptor = new BearerTokenAuthInterceptor(this.sourcePw);
     fhirContext.getRestfulClientFactory().setSocketTimeout(200 * 1000);
 
     IGenericClient client = fhirContext.getRestfulClientFactory().newGenericClient(this.fhirUrl);

@@ -1,9 +1,9 @@
 {
-  "jdbcDriverClass": "org.postgresql.Driver",
-  "databaseService" : "postgresql",
-  "databaseHostName" : "hapi-fhir-db",
-  "databasePort" : "5432",
+  "jdbcDriverClass": "com.mysql.cj.jdbc.Driver",
+  "databaseService" : "mysql",
+  "databaseHostName" : "",
+  "databasePort" : "",
   "databaseUser" : "admin",
-  "databasePassword" : "admin",
+  "databasePassword" : "",
   "databaseName" : "hapi"
 }
