@@ -29,7 +29,7 @@ COPY ./utils ./utils
 
 # Updating license will fail in e2e and there is no point doing it here anyways.
 # Note this build can be faster by excluding some uber-jars we don't copy.
-RUN mvn --batch-mode clean package -Dlicense.skip=true
+RUN mvn --batch-mode clean package -Dlicense.skip=true -DskipTests=true
 
 FROM eclipse-temurin:17-jdk-focal as main
 
