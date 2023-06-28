@@ -102,11 +102,10 @@ public class JdbcFetchHapi {
       String forced_id = resultSet.getString("forced_id");
       String resourceType = resultSet.getString("res_type");
       String lastUpdated = resultSet.getString("res_updated");
-      String fhirVersion = resultSet.getString("res_version");
       String resourceVersion = resultSet.getString("res_ver");
       numMappedResourcesMap.get(resourceType).inc();
       return HapiRowDescriptor.create(
-              forced_id, resourceType, lastUpdated, fhirVersion, resourceVersion, jsonResource);
+              forced_id, resourceType, lastUpdated, "R4", resourceVersion, jsonResource);
     }
   }
 
