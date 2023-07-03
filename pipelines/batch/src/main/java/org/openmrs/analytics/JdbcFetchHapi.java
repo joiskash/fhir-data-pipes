@@ -105,7 +105,7 @@ public class JdbcFetchHapi {
       String resourceVersion = resultSet.getString("res_ver");
       numMappedResourcesMap.get(resourceType).inc();
       return HapiRowDescriptor.create(
-              forced_id, resourceType, lastUpdated, "R4", resourceVersion, jsonResource);
+              resourceId, forced_id, resourceType, lastUpdated, "R4", resourceVersion, jsonResource);
     }
   }
 
@@ -119,7 +119,6 @@ public class JdbcFetchHapi {
               resultSet.getString("tag_system"),
               resultSet.getString("tag_code"),
               resultSet.getString("tag_display"));
-
       return ResourceTag.builder()
           .coding(coding)
           .resourceId(resultSet.getString("res_id"))
